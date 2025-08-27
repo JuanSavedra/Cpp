@@ -7,7 +7,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="FirstProgram.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

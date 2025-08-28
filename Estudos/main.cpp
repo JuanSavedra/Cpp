@@ -2,110 +2,72 @@
 
 using namespace std;
 
-/*
-	Primitive Data Types
-	Size (in bits) - Representable Values
-	5				 2'8 (256)
-	16				 2'16
-	32				 2'32
-	64				 2'64
-
-	1 byte = 8 bits.
-
-	=============================================================
-
-	char = 8 bits
-	char16_t = 16 bits
-	char32_t = 32 bits
-	wchar_t = Largest avaiable character set
-
-	=============================================================
-
-	short int = 16 bits
-	int = 16 bits
-	long int = 32 bits
-	long long int = 64 bits
-
-	=============================================================
-
-	float / 7 decimal digits = 1.2x10'-38 to 3.4x10'38
-	double / 15 decimal digits = 2.2x10'-308 to 1.8x10'308
-	long double / 19 decimal digits = 3.3x10'-4932 to 1.2x10'4932
-
-	=============================================================
-
-	bool = 8 bits (true (Non-zero) or false (0))
-	*/
-
-int global_variable { 0 };
-
-void Variables()
+void DeclaringArrays()
 {
-	std::cout << "Global variable: " << global_variable;
+	int test_scores[5] { 100, 95, 99, 87, 88 };
+	const int days_in_year { 365 };
+	int temperatures_in_year[days_in_year] { 0 };
 
-	int room_width{ 0 };
-	int room_length{ 0 };
-
-	std::cout << "Enter the width of the room: ";
-	std::cin >> room_width;
-
-	std::cout << "Enter the length of the room: ";
-	std::cin >> room_length;
-
-	std::cout << "The area of the room is " << room_width * room_length << " square feet" << std::endl;
+	std::cout << test_scores[0] << std::endl;
+	std::cout << days_in_year << std::endl;
+	std::cout << temperatures_in_year[0] << std::endl;
 }
 
-void SizeOffVariables() 
+void ModifyingArrays()
 {
-	std::cout << "char: " << sizeof(char) << " bytes." << std::endl;
-	std::cout << "int: " << sizeof(int) << " bytes." << std::endl;
-	std::cout << "unsigned int: " << sizeof(unsigned int) << " bytes." << std::endl;
-	std::cout << "short: " << sizeof(short) << " bytes." << std::endl;
-	std::cout << "long: " << sizeof(long) << " bytes." << std::endl;
-	std::cout << "long long: " << sizeof(long long) << " bytes." << std::endl;
-	std::cout << "float: " << sizeof(float) << " bytes." << std::endl;
-	std::cout << "double: " << sizeof(double) << " bytes." << std::endl;
-	std::cout << "long double: " << sizeof(long double) << " bytes." << std::endl;
+	char vowels[]{ 'a', 'e', 'i', 'o', 'u' };
+
+	std::cout << "The first vowel is: " << vowels[0] << std::endl;
+	std::cout << "The last vowel is: " << vowels[4] << std::endl;
+
+	double temperatures[] {26.4, 28.9, 32.4, 19.7};
+	std::cout << "The first temperature is: " << temperatures[0] << std::endl;
+
+	temperatures[0] = 28.3;
+	std::cout << "My nem first temperature is: " << temperatures[0] << std::endl;
+
+	std::cout << "Memory reference (adress): " << temperatures;
 }
 
-void MinimumValues()
+void MultidimensionalArray()
 {
-	std::cout << "char: " << CHAR_MIN << std::endl;
-	std::cout << "int: " << INT_MIN << std::endl;
-	std::cout << "short: " << SHRT_MIN << std::endl;
-	std::cout << "long: " << LONG_MIN << std::endl;
-	std::cout << "long long: " << LLONG_MIN << std::endl;
-	std::cout << "float: " << FLT_MIN << std::endl;
-	std::cout << "double: " << DBL_MIN << std::endl;
-	std::cout << "long double: " << LDBL_MIN << std::endl;
-}
+	int telephone_keyboard_numbers[3][3] =
+	{
+		{ 0, 0, 0 },
+		{ 0, 0, 0 },
+		{ 0, 0, 0 }
+	};
 
-void MaximumValues()
-{
-	std::cout << "char: " << CHAR_MAX << std::endl;
-	std::cout << "int: " << INT_MAX << std::endl;
-	std::cout << "short: " << SHRT_MAX << std::endl;
-	std::cout << "long: " << LONG_MAX << std::endl;
-	std::cout << "long long: " << LLONG_MAX << std::endl;
-	std::cout << "float: " << FLT_MAX << std::endl;
-	std::cout << "double: " << DBL_MAX << std::endl;
-	std::cout << "long double: " << LDBL_MAX << std::endl;
-}
+	// Typing numbers
+	std::cin >> telephone_keyboard_numbers[0][0];
+	std::cin >> telephone_keyboard_numbers[0][1];
+	std::cin >> telephone_keyboard_numbers[0][2];
 
-void ConstantsVariables()
-{
-	const double pi = { 3.14159265358979323846 };
+	std::cin >> telephone_keyboard_numbers[1][0];
+	std::cin >> telephone_keyboard_numbers[1][1];
+	std::cin >> telephone_keyboard_numbers[1][2];
 
-	std::cout << "Value of pi: " << pi;
+	std::cin >> telephone_keyboard_numbers[2][0];
+	std::cin >> telephone_keyboard_numbers[2][1];
+	std::cin >> telephone_keyboard_numbers[2][2];
+
+	// Printing numbers
+	std::cout << telephone_keyboard_numbers[0][0] << " ";
+	std::cout << telephone_keyboard_numbers[0][1] << " ";
+	std::cout << telephone_keyboard_numbers[0][2] << std::endl;
+
+	std::cout << telephone_keyboard_numbers[1][0] << " ";
+	std::cout << telephone_keyboard_numbers[1][1] << " ";
+	std::cout << telephone_keyboard_numbers[1][2] << std::endl;
+
+	std::cout << telephone_keyboard_numbers[2][0] << " ";
+	std::cout << telephone_keyboard_numbers[2][1] << " ";
+	std::cout << telephone_keyboard_numbers[2][2] << std::endl;
 }
 
 int main() 
 {	
-	//Variables();
-	//SizeOffVariables();
-	//MinimumValues();
-	//MaximumValues();
-	ConstantsVariables();
-
-	return 0;
+	//DeclaringArrays();
+	//ModifyingArrays();
+	MultidimensionalArray();
 }

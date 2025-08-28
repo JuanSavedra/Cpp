@@ -1,73 +1,70 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
-void DeclaringArrays()
+void InitializingVectors() 
 {
-	int test_scores[5] { 100, 95, 99, 87, 88 };
-	const int days_in_year { 365 };
-	int temperatures_in_year[days_in_year] { 0 };
-
-	std::cout << test_scores[0] << std::endl;
-	std::cout << days_in_year << std::endl;
-	std::cout << temperatures_in_year[0] << std::endl;
+	vector <char> vowels{ 'a', 'e', 'i', 'o', 'u' };
+	std::cout << "First vowel: " << vowels[0] << std::endl;
+	std::cout << "Last vowel: " << vowels[4] << std::endl;
+	std::cout << "Last vowel: " << vowels[4] << std::endl;
 }
 
-void ModifyingArrays()
+void UsingVectorSyntax() 
 {
-	char vowels[]{ 'a', 'e', 'i', 'o', 'u' };
+	vector <int> test_scores { 100, 98, 89 };
 
-	std::cout << "The first vowel is: " << vowels[0] << std::endl;
-	std::cout << "The last vowel is: " << vowels[4] << std::endl;
+	std::cout << "Test scores using vector syntax:" << std::endl;
+	std::cout << test_scores.at(0) << std::endl;
+	std::cout << test_scores.at(1) << std::endl;
+	std::cout << test_scores.at(2) << std::endl;
 
-	double temperatures[] {26.4, 28.9, 32.4, 19.7};
-	std::cout << "The first temperature is: " << temperatures[0] << std::endl;
-
-	temperatures[0] = 28.3;
-	std::cout << "My nem first temperature is: " << temperatures[0] << std::endl;
-
-	std::cout << "Memory reference (adress): " << temperatures;
+	std::cout << "There are " << test_scores.size() << " scores in the vector";
 }
 
-void MultidimensionalArray()
+void ModifyingVectors()
 {
-	int telephone_keyboard_numbers[3][3] =
+	vector <int> heights_in_centimeters(1);
+	std::cout << "First value in vector: " << heights_in_centimeters.at(0) << std::endl;
+
+	int heights_to_add;
+	std::cin >> heights_to_add;
+	heights_in_centimeters.push_back(heights_to_add);
+	std::cout << "Second value in vector: " << heights_in_centimeters.at(1) << std::endl;
+}
+
+void MultidimensionalVector()
+{
+	vector <vector<int>> telephone_numbers
 	{
-		{ 0, 0, 0 },
-		{ 0, 0, 0 },
-		{ 0, 0, 0 }
+		{ 1, 2, 3 },
+		{ 4, 5, 6 },
+		{ 7, 8, 9 },
 	};
 
-	// Typing numbers
-	std::cin >> telephone_keyboard_numbers[0][0];
-	std::cin >> telephone_keyboard_numbers[0][1];
-	std::cin >> telephone_keyboard_numbers[0][2];
+	std::cout << "Line 1: " << telephone_numbers.at(0).at(0) << " "
+		<< telephone_numbers.at(0).at(1) << " "
+		<< telephone_numbers.at(0).at(2)
+		<< std::endl;
 
-	std::cin >> telephone_keyboard_numbers[1][0];
-	std::cin >> telephone_keyboard_numbers[1][1];
-	std::cin >> telephone_keyboard_numbers[1][2];
+	std::cout << "Line 2: " << telephone_numbers.at(1).at(0) << " "
+		<< telephone_numbers.at(1).at(1) << " "
+		<< telephone_numbers.at(1).at(2)
+		<< std::endl;
 
-	std::cin >> telephone_keyboard_numbers[2][0];
-	std::cin >> telephone_keyboard_numbers[2][1];
-	std::cin >> telephone_keyboard_numbers[2][2];
-
-	// Printing numbers
-	std::cout << telephone_keyboard_numbers[0][0] << " ";
-	std::cout << telephone_keyboard_numbers[0][1] << " ";
-	std::cout << telephone_keyboard_numbers[0][2] << std::endl;
-
-	std::cout << telephone_keyboard_numbers[1][0] << " ";
-	std::cout << telephone_keyboard_numbers[1][1] << " ";
-	std::cout << telephone_keyboard_numbers[1][2] << std::endl;
-
-	std::cout << telephone_keyboard_numbers[2][0] << " ";
-	std::cout << telephone_keyboard_numbers[2][1] << " ";
-	std::cout << telephone_keyboard_numbers[2][2] << std::endl;
+	std::cout << "Line 3: " << telephone_numbers.at(2).at(0) << " "
+		<< telephone_numbers.at(2).at(1) << " "
+		<< telephone_numbers.at(2).at(2)
+		<< std::endl;;
 }
 
 int main() 
 {	
-	//DeclaringArrays();
-	//ModifyingArrays();
-	MultidimensionalArray();
+	//InitializingVectors();
+	//UsingVectorSyntax();
+	//ModifyingVectors();
+	MultidimensionalVector();
+
+	return 0;
 }
